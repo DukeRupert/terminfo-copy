@@ -14,21 +14,28 @@ To install the utility, ensure you have Go installed on your system, then run:
 go install github.com/YOUR_USERNAME/terminfo-copy@latest
 ```
 
-Or clone the repository and build manually:
+Or clone the repository and use the provided Makefile:
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/terminfo-copy.git
 cd terminfo-copy
-go build
+
+# Run directly
+make run
+
+# Or install globally
+make install
 ```
 
 ## Usage
 
-Run the utility and follow the prompt:
+After installation, you can run the utility from any directory by typing:
 
 ```bash
 terminfo-copy
 ```
+
+If you've installed using `make install`, ensure that your Go bin directory (typically `~/go/bin`) is in your system's PATH.
 
 The tool will:
 1. Prompt you for the remote server address (e.g., user@hostname)
