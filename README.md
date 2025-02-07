@@ -11,13 +11,13 @@ When working with modern terminal emulators, having the correct Terminfo configu
 To install the utility, ensure you have Go installed on your system, then run:
 
 ```bash
-go install github.com/YOUR_USERNAME/terminfo-copy@latest
+go install github.com/dukerupert/terminfo-copy@latest
 ```
 
 Or clone the repository and use the provided Makefile:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/terminfo-copy.git
+git clone https://github.com/dukerupert/terminfo-copy.git
 cd terminfo-copy
 
 # Run directly
@@ -27,15 +27,46 @@ make run
 make install
 ```
 
+### Setting Up Your PATH
+
+After installation, you'll need to ensure the Go binary directory is in your system PATH to run `terminfo-copy` from any location. Here's how to set it up:
+
+For Bash users (Linux/macOS):
+```bash
+# Add this line to ~/.bashrc
+export PATH=$PATH:$(go env GOPATH)/bin
+
+# Then apply the changes
+source ~/.bashrc
+```
+
+For Zsh users:
+```bash
+# Add this line to ~/.zshrc
+export PATH=$PATH:$(go env GOPATH)/bin
+
+# Then apply the changes
+source ~/.zshrc
+```
+
+For Fish shell users:
+```bash
+# This command will add the path permanently
+set -U fish_user_paths (go env GOPATH)/bin $fish_user_paths
+```
+
+You can verify the installation by running:
+```bash
+which terminfo-copy
+```
+
 ## Usage
 
-After installation, you can run the utility from any directory by typing:
+After proper installation and PATH configuration, run the utility from any directory by typing:
 
 ```bash
 terminfo-copy
 ```
-
-If you've installed using `make install`, ensure that your Go bin directory (typically `~/go/bin`) is in your system's PATH.
 
 The tool will:
 1. Prompt you for the remote server address (e.g., user@hostname)
